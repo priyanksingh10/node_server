@@ -1,0 +1,19 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body class="container-fluid">
+<h1 class="jumbotron">
+    <%= title%>
+</h1>
+<form action="/auth/signUp" method="post">
+    Username: <input name="username" id="username">
+    Password: <input type="password" name="password" id="password">
+    <button type="submit">Sign Up</button>
+</form>
+
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
