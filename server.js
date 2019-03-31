@@ -42,7 +42,7 @@ const authRouter = require('./src/router/authRouter')();
 app.use('/auth', authRouter);
 
 app.get('/', (req, res) => {
-  res.render('index', { title: 'What are you upto?' });
+  res.redirect('/auth/signUp');
 });
 
 app.listen(SETTINGS.port, () => {

@@ -30,7 +30,7 @@ function router() {
           const response = await col.insertOne(user);
 
           req.login(response.ops[0], () => {
-            resp.redirect('/auth/profile');
+            resp.redirect('/task');
           });
         } catch (err) {
           debug(err.stack);
@@ -44,7 +44,7 @@ function router() {
       resp.render('signin', { title: 'Please Sign in' });
     })
     .post(passport.authenticate('local', {
-      successRedirect: '/auth/profile',
+      successRedirect: '/task',
       failureRedirect: '/auth/signUp'
     }));
 
