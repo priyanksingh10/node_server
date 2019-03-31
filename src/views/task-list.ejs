@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body class="container-fluid">
+        <h1 class="jumbotron"><%= title %></h1>
+        <ul>
+            <% for (let i=0; i < data.length; i++) { %>
+                <li>
+                    <span> <%= data[i].name %> </span>
+                    <span> <%= data[i].description %> </span>
+                    <span> <%= data[i].priority %> </span>
+                    <span> <%= data[i].status %> </span>
+                    <span> <%= data[i].createdOn %> </span>
+                    <span> <%= data[i].completedOn %> </span>
+
+                </li>
+            <%}%>
+        </ul>
+
+        <script src="/js/jquery.slim.min.js"></script>
+        <script src="/js/popper.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
