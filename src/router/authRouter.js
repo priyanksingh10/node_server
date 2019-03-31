@@ -14,10 +14,8 @@ const dbName = 'matrix';
 function router() {
   authRouter.route('/signUp')
     .get((req, resp) => {
-      resp.render('signup', { title: 'signUp!' });
-    });
-
-  authRouter.route('/signUp')
+      resp.render('signup', { title: 'Please signUp' });
+    })
     .post((req, resp) => {
       const user = req.body;
       (async function mongodb() {
@@ -43,7 +41,7 @@ function router() {
 
   authRouter.route('/signIn')
     .get((req, resp) => {
-      resp.render('signin', { title: 'Sign in' });
+      resp.render('signin', { title: 'Please Sign in' });
     })
     .post(passport.authenticate('local', {
       successRedirect: '/auth/profile',
