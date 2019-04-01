@@ -1,5 +1,5 @@
 const { MongoClient } = require('mongodb');
-const debug = require('debug')('app:auth-controller');
+const debug = require('debug')('app:task-controller');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
