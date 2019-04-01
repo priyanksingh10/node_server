@@ -1,35 +1,40 @@
 <html>
 <head>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
-<body class="container-fluid">
-<div class="row">
-    <div class="col-md-9">
-
-    </div>
-
-    <div class="col-md-3 pr-5 pt-5">
-        <div class="bg-light">
-            <div class="bg-warning">
-                <h6 class="display-5 p-2"><%= title%></h6>
+<body>
+<div class="hero">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
             </div>
-            <form class="p-4" action="/auth/signIn" method="post">
-                <div class="form-group">
-                    <label for="username"> Username: </label>
-                    <input class="form-control" name="username" id="username">
-                </div>
+            <div class="col-md-3 pl-5 pt-5">
+                <div class="bg-light">
+                    <div class="bg-transparent">
+                        <h3 class="text-muted p-2 d-inline"><%= title%></h3>
+                    </div>
+                    <form class="p-4" action="/auth/signIn" method="post">
+                        <div class="form-group">
+                            <label for="username"> Username: </label>
+                            <input class="form-control" name="username" id="username">
+                        </div>
 
-                <div class="form-group">
-                    <label for="password"> Password: </label>
-                    <input class="form-control" type="password" name="password" id="password">
-                </div>
+                        <div class="form-group">
+                            <label for="password"> Password: </label>
+                            <input class="form-control" type="password" name="password" id="password">
+                        </div>
 
-                <div class="my-5">
-                    <button class="btn btn-success" type="submit">Sign In</button>
-                    <button class="btn btn-secondary" type="reset">Reset</button>
-                </div>
+                        <div class="my-5">
+                            <button class="btn btn-primary" type="submit">Sign In</button>
+                            <button class="btn btn-secondary" type="reset">Reset</button>
+                        </div>
 
-            </form>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
         </div>
     </div>
 </div>

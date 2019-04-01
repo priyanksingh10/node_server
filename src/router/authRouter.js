@@ -1,57 +1,27 @@
 const express = require('express');
-const debug = require('debug')('app:auth');
-const { MongoClient } = require('mongodb');
-const passport = require('passport');
+const authController = require('../controller/auth-controller');
 
 const authRouter = express.Router();
 
-// Connection URL
-const url = 'mongodb://localhost:27017';
-
-// Database Name
-const dbName = 'matrix';
 
 function router() {
   authRouter.route('/signUp')
     .get((req, resp) => {
-      resp.render('signup', { title: 'Please signUp' });
+      authController.getLoginPage(req, resp, 'signup', { title: 'Please Sign up' });
     })
     .post((req, resp) => {
-      const user = req.body;
-      (async function mongodb() {
-        let client;
-        try {
-          client = await MongoClient.connect(url);
-          debug('Connected to DB');
-          const db = await client.db(dbName);
-
-          const col = await db.collection('users');
-
-          const response = await col.insertOne(user);
-
-          req.login(response.ops[0], () => {
-            resp.redirect('/task');
-          });
-        } catch (err) {
-          debug(err.stack);
-        }
-        client.close();
-      }());
+      authController.createUser(req, resp);
     });
 
   authRouter.route('/signIn')
     .get((req, resp) => {
-      resp.render('signin', { title: 'Please Sign in' });
+      authController.getLoginPage(req, resp, 'signin', { title: 'Please Sign in' });
     })
-    .post(passport.authenticate('local', {
-      successRedirect: '/task',
-      failureRedirect: '/auth/signUp'
-    }));
+    .post(authController.authenticate());
 
   authRouter.route('/profile')
     .get((req, resp) => {
-      debug(req.user);
-      resp.render('profile', { title: 'Profile', username: req.user.username });
+      authController.goToProfile(req, resp);
     });
 
   return authRouter;

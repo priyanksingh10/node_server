@@ -1,3 +1,8 @@
-div {
-    border: 2px solid red;
+.hero {
+    background: url("../img/Light_Bulb.-.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
 }
