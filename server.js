@@ -28,7 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')));
-app.use('/js', express.static(path.join(__dirname, 'node_modules/popper.js/dist')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/vue/dist')));
+app.use('/js', express.static(path.join(__dirname, 'src/scripts')));
 
 app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'ejs');
@@ -42,7 +43,22 @@ const authRouter = require('./src/router/authRouter')();
 app.use('/auth', authRouter);
 
 app.get('/', (req, res) => {
-  res.redirect('/auth/signUp');
+  res.render('index', { title: 'Server Sent Event' });
+});
+
+app.get('/server-date-stream', (req, res) => {
+  res.status(200).set({
+    connection: 'keep-alive',
+    'cache-control': 'no-cache',
+    'content-type': 'text/event-stream'
+  });
+
+  res.write(`event: newServerTime\ndata: ${Date.now()}\n\n`);
+
+  setInterval(() => {
+    const currDate = Date.now();
+    res.write(`event: newServerTime\ndata: ${currDate}\n\n`);
+  }, 800);
 });
 
 app.listen(SETTINGS.port, () => {

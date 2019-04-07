@@ -1,17 +1,66 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-    </head>
-    <body class="container-fluid">
-        <h1 class="jumbotron">
-            <%= title%>
-        </h1>
-        <nav>
-            <a class="nav" href="/task/history">Task History</a>
-        </nav>
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="container-fluid">
+<div id="mainApp">
 
-    <script src="/js/jquery.slim.min.js"></script>
-    <script src="/js/popper.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    </body>
+    <h1 class="jumbotron">
+        <%= title %>
+    </h1>
+
+    <div class="container">
+        <div class="row">
+            <br/>
+            <div class="col text-center">
+                <h2>Server Date & Time</h2>
+                <p>shows soconds counter</p>
+            </div>
+
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <div class="counter">
+                    <i class="fas fa-calendar-day fa-2x"></i>
+                    <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+                    <p class="count-text ">Current Date</p>
+                    <span>{{serverDate}}</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter">
+                    <i class="fas fa-hourglass-half fa-2x"></i>
+                    <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
+                    <p class="count-text ">Current Hour</p>
+                    <span>{{serverHour}}</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="counter">
+                    <i class="fa fa-lightbulb fa-2x"></i>
+                    <h2 class="timer count-title count-number" data-to="11900" data-speed="1500"></h2>
+                    <p class="count-text ">Current Minute</p>
+                    <span>{{serverMinute}}</span>
+                </div></div>
+            <div class="col">
+                <div class="counter">
+                    <i class="fas fa-clock fa-2x"></i>
+                    <h2 class="timer count-title count-number" data-to="157" data-speed="1500"></h2>
+                    <p class="count-text ">Current Second</p>
+                    <span>{{serverSeconds}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/js/main.js"></script>
+</body>
 </html>

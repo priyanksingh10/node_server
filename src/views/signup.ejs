@@ -1,9 +1,10 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    <body>
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="vueApp">
     <div class="hero">
         <div class="container-fluid">
             <div class="row">
@@ -12,12 +13,12 @@
                 <div class="col-md-3 pl-5 pt-5">
                     <div class="bg-light">
                         <div class="bg-transparent">
-                            <h3 class="text-muted p-2 d-inline"><%= title%> or </h3>
+                            <h3 class="text-muted p-2 d-inline"><%= title %> or </h3>
                             <a class="btn btn-danger" href="/auth/signIn"> Sign In </a>
                         </div>
                         <form class="p-4" action="/auth/signUp" method="post">
                             <div class="form-group">
-                                <label for="username"> Username: </label>
+                                <label v-on:click="showPopUp()" for="username"> Username: </label>
                                 <input class="form-control" name="username" id="username">
                             </div>
 
@@ -45,10 +46,12 @@
             </div>
         </div>
     </div>
+</div>
+<script src="/js/jquery.slim.min.js"></script>
+<script src="/js/popper.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/vue.js"></script>
+<script src="/js/signUp.js"></script>
 
-
-        <script src="/js/jquery.slim.min.js"></script>
-        <script src="/js/popper.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>
