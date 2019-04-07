@@ -1,7 +1,7 @@
 const app = new Vue({
   el: '#mainApp',
   data: {
-    serverDate: new Date(),
+    serverDate: '',
     serverHour: '',
     serverMinute: '',
     serverSeconds: ''

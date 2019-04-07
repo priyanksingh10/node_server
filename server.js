@@ -7,9 +7,13 @@ const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const SETTINGS = require('./env-vars');
+const dotenv = require('dotenv');
 
 const app = express();
+
+dotenv.config();
+
+const SETTINGS = require('./env-vars');
 
 // Connection URL
 const url = 'mongodb://localhost:27017';
